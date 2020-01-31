@@ -34,10 +34,10 @@ module "instance_template" {
   service_account = "${var.service_account}"
 }
 
-// module "compute_instance" {
-//   source            = "git::https://github.com/smelukote/terraform-pipeline-2020.git"
-//   subnetwork        = "${var.subnetwork}"
-//   num_instances     = "${var.num_instances}"
-//   hostname          = "instance-simple"
-//   instance_template = "${module.instance_template.self_link}"
-// }
+module "compute_instance" {
+  source            = "git::https://github.com/smelukote/terraform-pipeline-2020.git"
+  subnetwork        = "${var.subnetwork}"
+  num_instances     = "${var.num_instances}"
+  hostname          = "instance-simple"
+  instance_template = "${module.instance_template.self_link}"
+}
